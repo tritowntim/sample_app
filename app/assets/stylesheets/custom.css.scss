@@ -3,6 +3,7 @@
 /* variables */
 
 $lightGray: #999;
+$grayLighter: #999;
 $grayMediumLight: #EAEAEA;
 
 @mixin box_sizing {
@@ -155,6 +156,22 @@ input[type="text"], input[type="password"], textarea, select, .uneditable-input 
 	@extend .control-group;
 	@extend .error;
 }
+
+/* users index */
+
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $grayLighter;
+		&:last-child {
+			border-bottom: 1px solid $grayLighter; 
+		}
+	}
+}
+
 
 /* miscellaneous */
 

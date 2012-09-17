@@ -33,6 +33,8 @@ describe "Authentication" do
   	before { sign_in user }
 
 		it { should have_selector('title', :text => user.name) }
+
+		it { should have_link('Users', :href => users_path) }
 		it { should have_link('Profile', :href => user_path(user)) }
 		it { should have_link('Settings', :href => edit_user_path(user)) }
 		it { should have_link('Sign out', :href => signout_path) }
@@ -76,6 +78,11 @@ describe "Authentication" do
 					end
 				end
 
+			end
+
+			describe "visiting user index" do 
+				before { visit users_path }
+				it { should have_selector('title', :text => 'Sign in')}
 			end
 
 		end
