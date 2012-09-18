@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:password_confirmation) }  
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:admin) }  
 
   it { should be_valid }
 
@@ -104,4 +105,12 @@ describe User do
     it {should be_invalid }
   end
   
+  describe "with admin attribute of 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+    it { should be_admin }
+  end
+
 end
